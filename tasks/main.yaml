@@ -1,18 +1,18 @@
 ---
 - apt_repository:
-    repo: 'deb http://ftp.debian.org/debian stretch-backports main'
+    repo: 'deb http://ftp.debian.org/debian {{ ansible_distribution_release }}-backports main'
     filename: backports
   remote_user: root
   when: ansible_os_family == 'Debian' and backports.mode == 'main'
 
 - apt_repository:
-    repo: 'deb http://ftp.debian.org/debian stretch-backports main contrib'
+    repo: 'deb http://ftp.debian.org/debian {{ ansible_distribution_release }}-backports main contrib'
     filename: backports
   remote_user: root
   when: ansible_os_family == 'Debian'  and backports.mode == 'contrib'
 
 - apt_repository:
-    repo: 'deb http://ftp.debian.org/debian stretch-backports main contrib non-free'
+    repo: 'deb http://ftp.debian.org/debian {{ ansible_distribution_release }}-backports main contrib non-free'
     filename: backports
   remote_user: root
   when: ansible_os_family == 'Debian'  and backports.mode == 'non-free'
